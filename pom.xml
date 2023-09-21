@@ -45,6 +45,9 @@
         <jacoco.version>0.8.10</jacoco.version>
         <!-- OpenAPI -->
         <springdoc-openapi-starter-webflux-ui.version>2.1.0</springdoc-openapi-starter-webflux-ui.version>
+        <!-- Sonar Cloud -->
+        <sonar.organization>alvarorgz</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
 
     <dependencies>

@@ -9,11 +9,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class FractionTest {
-    private Fraction fraction0, fraction1;
+    private Fraction fraction0, fraction1, fraction2;
     @BeforeEach
     void before() {
         fraction0 = new Fraction();
         fraction1 = new Fraction(2, 4);
+        fraction2 = new Fraction(3, 2);
     }
 
     @Test
@@ -41,5 +42,19 @@ public class FractionTest {
     @Test
     void testFractionToString() {
         assertEquals("Fraction{numerator=2, denominator=4}", fraction1.toString());
+    }
+
+    @Test
+    void testFractionIsProper() {
+        assertEquals(false, fraction0.isProper());
+        assertEquals(true, fraction1.isProper());
+        assertEquals(false, fraction2.isProper());
+    }
+
+    @Test
+    void testFractionIsImproper() {
+        assertEquals(true, fraction0.isImproper());
+        assertEquals(false, fraction1.isImproper());
+        assertEquals(true, fraction2.isImproper());
     }
 }

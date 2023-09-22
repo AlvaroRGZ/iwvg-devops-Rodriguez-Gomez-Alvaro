@@ -64,4 +64,8 @@ public class Fraction {
                 ", denominator=" + denominator +
                 '}';
     }
+
+    public boolean isProper() {
+        return getNumerator() < getDenominator();
+    }
 }

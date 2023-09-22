@@ -76,4 +76,10 @@ public class Fraction {
     public boolean isEquivalent(Fraction fraction) {
         return this.decimal() == fraction.decimal();
     }
+
+    public Fraction add(Fraction fraction) {
+        int numerator = this.getNumerator() * fraction.getDenominator() +
+                        fraction.getNumerator() * this.getDenominator();
+        return new Fraction(numerator, this.getDenominator() * fraction.getDenominator());
+    }
 }

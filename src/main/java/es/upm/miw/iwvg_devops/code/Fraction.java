@@ -82,4 +82,10 @@ public class Fraction {
                         fraction.getNumerator() * this.getDenominator();
         return new Fraction(numerator, this.getDenominator() * fraction.getDenominator());
     }
+
+
+    public Fraction multiply(Fraction fraction) {
+        return new Fraction(this.getNumerator() * fraction.getNumerator(),
+                this.getDenominator() * fraction.getDenominator());
+    }
 }

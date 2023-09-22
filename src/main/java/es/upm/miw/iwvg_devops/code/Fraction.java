@@ -83,9 +83,13 @@ public class Fraction {
         return new Fraction(numerator, this.getDenominator() * fraction.getDenominator());
     }
 
-
     public Fraction multiply(Fraction fraction) {
         return new Fraction(this.getNumerator() * fraction.getNumerator(),
                 this.getDenominator() * fraction.getDenominator());
+    }
+
+    public Fraction divide(Fraction fraction) {
+        return new Fraction(this.getNumerator() * fraction.getDenominator(),
+                this.getDenominator() * fraction.getNumerator());
     }
 }

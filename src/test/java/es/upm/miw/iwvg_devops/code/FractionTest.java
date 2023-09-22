@@ -9,11 +9,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class FractionTest {
-    private Fraction fraction0, fraction1;
+    private Fraction fraction0, fraction1, fraction2;
     @BeforeEach
     void before() {
         fraction0 = new Fraction();
         fraction1 = new Fraction(2, 4);
+        fraction2 = new Fraction(3, 2);
     }
 
     @Test
@@ -41,5 +42,52 @@ public class FractionTest {
     @Test
     void testFractionToString() {
         assertEquals("Fraction{numerator=2, denominator=4}", fraction1.toString());
+    }
+
+    @Test
+    void testFractionIsProper() {
+        assertEquals(false, fraction0.isProper());
+        assertEquals(true, fraction1.isProper());
+        assertEquals(false, fraction2.isProper());
+    }
+
+    @Test
+    void testFractionIsImproper() {
+        assertEquals(true, fraction0.isImproper());
+        assertEquals(false, fraction1.isImproper());
+        assertEquals(true, fraction2.isImproper());
+    }
+
+    @Test
+    void testFractionIsEquivalent() {
+        assertEquals(true, fraction1.isEquivalent(new Fraction(4, 8)));
+        assertEquals(false, fraction2.isEquivalent(new Fraction(4, 8)));
+    }
+
+    @Test
+    void testFractionAdd() {
+        Fraction result1 = new Fraction(4, 4);
+        Fraction result2 = new Fraction(8, 4);
+
+        assertEquals(true, result1.isEquivalent(fraction1.add(fraction1)));
+        assertEquals(true, result2.isEquivalent(fraction1.add(fraction2)));
+    }
+
+    @Test
+    void testFractionMultiply() {
+        Fraction result1 = new Fraction(4, 16);
+        Fraction result2 = new Fraction(6, 8);
+
+        assertEquals(true, result1.isEquivalent(fraction1.multiply(fraction1)));
+        assertEquals(true, result2.isEquivalent(fraction1.multiply(fraction2)));
+    }
+
+    @Test
+    void testFractionDivide() {
+        Fraction result1 = new Fraction(8, 8);
+        Fraction result2 = new Fraction(4, 12);
+
+        assertEquals(true, result1.isEquivalent(fraction1.divide(fraction1)));
+        assertEquals(true, result2.isEquivalent(fraction1.divide(fraction2)));
     }
 }

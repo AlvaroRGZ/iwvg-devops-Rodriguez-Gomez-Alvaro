@@ -72,4 +72,13 @@ public class FractionTest {
         assertEquals(true, result1.isEquivalent(fraction1.add(fraction1)));
         assertEquals(true, result2.isEquivalent(fraction1.add(fraction2)));
     }
+
+    @Test
+    void testFractionMultiply() {
+        Fraction result1 = new Fraction(4, 16);
+        Fraction result2 = new Fraction(6, 8);
+
+        assertEquals(true, result1.isEquivalent(fraction1.multiply(fraction1)));
+        assertEquals(true, result2.isEquivalent(fraction1.multiply(fraction2)));
+    }
 }

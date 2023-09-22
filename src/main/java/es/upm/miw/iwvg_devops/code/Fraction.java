@@ -68,7 +68,12 @@ public class Fraction {
     public boolean isProper() {
         return getNumerator() < getDenominator();
     }
+
     public boolean isImproper() {
         return !isProper();
+    }
+
+    public boolean isEquivalent(Fraction fraction) {
+        return this.decimal() == fraction.decimal();
     }
 }

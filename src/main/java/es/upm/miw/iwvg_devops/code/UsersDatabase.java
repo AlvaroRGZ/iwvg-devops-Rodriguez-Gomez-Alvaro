@@ -52,9 +52,13 @@ public class UsersDatabase {
     }
 
     public Fraction findFractionSubtractionByUserName(String name) {
-        return findAll().filter(user -> user.getName().equals(name))
-                .toList().get(0).getFractions().stream()
-                .reduce((a, b) -> a.add(new Fraction(-b.getNumerator(), b.getDenominator())))
-                .orElse(new Fraction());
+        List<User> usersList = findAll().filter(user -> user.getName().equals(name)).toList();
+        if (!usersList.isEmpty()) {
+            return usersList.get(0).getFractions().stream()
+                    .reduce((a, b) -> a.add(new Fraction(-b.getNumerator(), b.getDenominator())))
+                    .orElse(new Fraction());
+        } else {
+            return new Fraction();
+        }
     }
 }

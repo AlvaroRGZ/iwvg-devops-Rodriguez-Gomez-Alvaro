@@ -6,8 +6,7 @@ import java.util.stream.Collectors;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class UsersDatabaseTest {
     private UsersDatabase usersDatabase;
@@ -24,5 +23,12 @@ public class UsersDatabaseTest {
 
         assertEquals(2, oscarUsers.size());
         assertEquals("Fernandez", oscarUsers.get(0).getFamilyName());
+    }
+
+    @Test
+    void testFindFractionSubtractionByUserName() {
+        assertTrue( new Fraction().isEquivalent(usersDatabase.findFractionSubtractionByUserName("Pepe")));
+        assertTrue( new Fraction(0, 8).isEquivalent(usersDatabase.findFractionSubtractionByUserName("Paula")));
+        assertTrue( new Fraction(-3, 1).isEquivalent(usersDatabase.findFractionSubtractionByUserName("Oscar")));
     }
 }

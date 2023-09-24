@@ -48,4 +48,12 @@ public class UsersDatabaseTest {
                 .reduce(Double::sum).orElse(0.0)
         );
     }
+    @Test
+    void testFindUserFamilyNameInitialBySomeProperFraction() {
+        assertEquals("F", usersDatabase.findUserFamilyNameInitialBySomeProperFraction().toList().get(0));
+        assertEquals("B", usersDatabase.findUserFamilyNameInitialBySomeProperFraction().toList().get(1));
+        assertEquals("FBLB", usersDatabase.findUserFamilyNameInitialBySomeProperFraction()
+                .reduce((a, b) -> a + b).orElse("")
+        );
+    }
 }

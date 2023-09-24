@@ -69,4 +69,12 @@ public class UsersDatabase {
                 .max(Comparator.comparingDouble(Fraction::decimal))
                 .orElse(new Fraction());
     }
+
+    public Stream<Double> findDecimalImproperFractionByUserName(String name) {
+        return findAll()
+                .filter(user -> user.getName().equals(name))
+                .flatMap(user -> user.getFractions().stream())
+                .filter(Fraction::isImproper)
+                .map(Fraction::decimal);
+    }
 }

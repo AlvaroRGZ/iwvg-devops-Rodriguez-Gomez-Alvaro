@@ -36,4 +36,16 @@ public class UsersDatabaseTest {
     void testFindHighestFraction() {
         assertTrue(new Fraction(0, 0).isEquivalent(usersDatabase.findHighestFraction()));
     }
+
+    @Test
+    void testFindDecimalImproperFractionByUserName() {
+        assertEquals(2.0, usersDatabase.findDecimalImproperFractionByUserName("Ana").toList().get(0));
+        assertEquals(4/(double)3 + 2, usersDatabase.findDecimalImproperFractionByUserName("Ana")
+                .reduce(Double::sum).orElse(0.0)
+        );
+        assertEquals(-0.0, usersDatabase.findDecimalImproperFractionByUserName("Antonio").toList().get(0));
+        assertEquals(3.5, usersDatabase.findDecimalImproperFractionByUserName("Oscar")
+                .reduce(Double::sum).orElse(0.0)
+        );
+    }
 }

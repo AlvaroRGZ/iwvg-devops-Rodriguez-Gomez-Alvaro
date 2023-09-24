@@ -31,4 +31,9 @@ public class UsersDatabaseTest {
         assertTrue( new Fraction(0, 8).isEquivalent(usersDatabase.findFractionSubtractionByUserName("Paula")));
         assertTrue( new Fraction(-3, 1).isEquivalent(usersDatabase.findFractionSubtractionByUserName("Oscar")));
     }
+
+    @Test
+    void testFindHighestFraction() {
+        assertTrue(new Fraction(0, 0).isEquivalent(usersDatabase.findHighestFraction()));
+    }
 }

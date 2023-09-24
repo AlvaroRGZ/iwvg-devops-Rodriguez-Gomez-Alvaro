@@ -3,6 +3,7 @@ package es.upm.miw.iwvg_devops.code;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import java.util.Comparator;
 
 public class UsersDatabase {
 
@@ -60,5 +61,12 @@ public class UsersDatabase {
         } else {
             return new Fraction();
         }
+    }
+
+    public Fraction findHighestFraction() {
+        return findAll()
+                .flatMap(user -> user.getFractions().stream())
+                .max(Comparator.comparingDouble(Fraction::decimal))
+                .orElse(new Fraction());
     }
 }

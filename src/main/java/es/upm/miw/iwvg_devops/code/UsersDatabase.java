@@ -71,6 +71,7 @@ public class UsersDatabase {
     }
 
     public Stream<Double> findDecimalImproperFractionByUserName(String name) {
+        // A bug was detected and then fixed
         return findAll()
                 .filter(user -> user.getName().equals(name))
                 .flatMap(user -> user.getFractions().stream())

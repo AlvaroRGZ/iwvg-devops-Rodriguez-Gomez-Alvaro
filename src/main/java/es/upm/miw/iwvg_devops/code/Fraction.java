@@ -54,7 +54,11 @@ public class Fraction {
     }
 
     public double decimal() {
-        return (double) numerator / denominator;
+        if (denominator == 0) {
+            return Double.MAX_VALUE;
+        } else {
+            return (double) numerator / denominator;
+        }
     }
 
     @Override

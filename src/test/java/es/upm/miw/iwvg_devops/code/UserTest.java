@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
-public class UserTest {
+class UserTest {
     private User user1, user2;
     private ArrayList<Fraction> fractions;
     @BeforeEach

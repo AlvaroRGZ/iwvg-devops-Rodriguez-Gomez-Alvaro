@@ -82,9 +82,9 @@ public class Fraction {
     }
 
     public Fraction add(Fraction fraction) {
-        int numerator = this.getNumerator() * fraction.getDenominator() +
+        int resultNumerator = this.getNumerator() * fraction.getDenominator() +
                         fraction.getNumerator() * this.getDenominator();
-        return new Fraction(numerator, this.getDenominator() * fraction.getDenominator());
+        return new Fraction(resultNumerator, this.getDenominator() * fraction.getDenominator());
     }
 
     public Fraction multiply(Fraction fraction) {
